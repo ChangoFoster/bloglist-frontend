@@ -8,7 +8,6 @@ import blogService from './services/blogs'
 import loginService from './services/login'
 import './App.css'
 
-//TODO: Up to part 5.17
 //TODO: Fix eslint
 
 const App = () => {
