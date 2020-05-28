@@ -8,8 +8,6 @@ import blogService from './services/blogs'
 import loginService from './services/login'
 import './App.css'
 
-//TODO: Fix eslint
-
 const App = () => {
   const [blogs, setBlogs] = useState([])
   const [message, setMessage] = useState(null)
