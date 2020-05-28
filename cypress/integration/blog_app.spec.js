@@ -1,3 +1,5 @@
+import cy from 'Cypress'
+
 describe('Note app', function() {
   const user = {
     name: 'Sam',

@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "node_modules/.bin/eslint .",
+    "lint": "node_modules/.bin/eslint .",
     "cypress:open": "cypress open"
   },
   "eslintConfig": {
@@ -37,7 +37,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "cypress": "^4.4.0",
-    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-jest": "^23.6.0"
   },
   "proxy": "http://localhost:3001"
