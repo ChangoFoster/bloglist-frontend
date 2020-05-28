@@ -5,13 +5,15 @@ const Notification = ({ message }) => {
 
   if(message === null) {
     return null
-  } else {
-    return <div
-      className='error'
-      style={message.type === 'error' ? undefined : success} >
-        {message.text}
-      </div>
   }
+
+  const { text, type } = message
+
+  return (
+    <div className='error' style={type === 'error' ? undefined : success}>
+      {text}
+    </div>
+  )
 }
 
 export default Notification

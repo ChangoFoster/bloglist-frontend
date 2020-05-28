@@ -39,7 +39,10 @@ const App = () => {
     try {
       blogFormRef.current.toggleVisibility()
       const blog = await blogService.create(blogObject)
-      setMessage({ text: `a new blog ${blog.title} was added`, type: 'success' })
+      setMessage({
+        text: `a new blog ${blog.title} was added`,
+        type: 'success'
+      })
       setTimeout(() => { setMessage(null) }, 5000)
       setBlogs(blogs.concat(blog))
     } catch (exception) {
@@ -51,7 +54,10 @@ const App = () => {
   const updateBlog = async (id, blogObject) => {
     try {
       const updateBlog = await blogService.update(id, blogObject)
-      setMessage({ text: `${user.name} liked ${updateBlog.title}`, type: 'success'})
+      setMessage({
+        text: `${user.name} liked ${updateBlog.title}`,
+        type: 'success'
+      })
       setTimeout(() => { setMessage(null) }, 5000)
       setBlogs(blogs.map(blog => blog.id === updateBlog.id ? updateBlog : blog))
     } catch (error) {
@@ -64,11 +70,17 @@ const App = () => {
   const deleteBlog = async (blogObject) => {
     try {
       await blogService.remove(blogObject.id)
-      setMessage({ text: `${blogObject.title} was successfully removed`, type: 'success'})
+      setMessage({
+        text: `${blogObject.title} was successfully removed`,
+        type: 'success'
+      })
       setTimeout(() => { setMessage(null) }, 5000)
       setBlogs(blogs.filter(blog => blog.id !== blogObject.id))
     } catch (error) {
-      setMessage({ text: 'Something went wrong deleting your blog', type: 'error'})
+      setMessage({
+        text: 'Something went wrong deleting your blog',
+        type: 'error'
+      })
       setTimeout(() => { setMessage(null) }, 5000)
     }
   }
@@ -117,7 +129,9 @@ const App = () => {
     <div>
       <p>
         {user.name} logged in
-        <button className="logout-button" onClick={event => logout(event)}>Log out</button>
+        <button className="logout-button" onClick={event => logout(event)}>
+          Log out
+        </button>
       </p>
     </div>
   )

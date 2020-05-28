@@ -89,12 +89,13 @@ describe('Note app', function() {
       cy.createBlog(({...blog, likes: blog.likes + 1 }))
       cy.createBlog(({...blog, likes: blog.likes + 2 }))
       cy.get('.blog-wrapper').find('.blog-show-button').click({multiple: true})
-      cy.get('.blog-details').find('.blog-like').each((span, index, collection) => {
-        const value = Number(span.text())
-        const prevValue = Number(collection.eq(index + 1).text())
-        if(prevValue > 0 && prevValue !== null) {
-          expect(value).to.be.greaterThan(prevValue)
-        }
+      cy.get('.blog-details').find('.blog-like')
+        .each((span, index, collection) => {
+          const value = Number(span.text())
+          const previousValue = Number(collection.eq(index + 1).text())
+          if(previousValue > 0 && previousValue !== null) {
+            expect(value).to.be.greaterThan(previousValue)
+          }
       })
     })
   })

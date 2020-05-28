@@ -7,7 +7,8 @@ const Blog = ({ blog, handleLike, handleDelete, user }) => {
 
   const deleteBlog = (event) => {
     event.preventDefault()
-    const result = window.confirm(`Are you sure you want to delete ${blog.title}`)
+    const result = window
+      .confirm(`Are you sure you want to delete ${blog.title}`)
     result && handleDelete(blog)
   }
 
@@ -18,9 +19,17 @@ const Blog = ({ blog, handleLike, handleDelete, user }) => {
     handleLike(blog.id, updateBlog)
   }
 
-  const show = () => <button className="blog-show-button" onClick={() => setToggle(true)}>View</button>
+  const show = () => (
+    <button className="blog-show-button" onClick={() => setToggle(true)}>
+      View
+    </button>
+  )
 
-  const deleteButton = () => <button className="blog-delete-button" onClick={deleteBlog}>Delete post</button>
+  const deleteButton = () => (
+    <button className="blog-delete-button" onClick={deleteBlog}>
+      Delete post
+    </button>
+  )
 
   const details = () => {
     return (
@@ -28,11 +37,15 @@ const Blog = ({ blog, handleLike, handleDelete, user }) => {
         <div className="blog-url">URL: {blog.url}</div>
         <div className="blog-likes">
           Likes: <span className="blog-like">{blog.likes}</span>
-          <button className="blog-like-button" onClick={updateBlog}>Like</button>
+          <button className="blog-like-button" onClick={updateBlog}>
+            Like
+          </button>
         </div>
         <div className="blog-name">Name: {blog.user.name}</div>
-        {user !== null && user.username === blog.user.username && deleteButton() }
-        <button className=".blog-hide-button" onClick={() => setToggle(false)}>Cancel</button>
+        {user && user.username === blog.user.username && deleteButton() }
+        <button className=".blog-hide-button" onClick={() => setToggle(false)}>
+          Cancel
+        </button>
       </div>
     )
   }
